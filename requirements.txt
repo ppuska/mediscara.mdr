@@ -1,1 +1,1 @@
--e ./pdf-generator
+-e lib/pdf-generator
