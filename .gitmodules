@@ -4,3 +4,4 @@
 [submodule "lib/mediscara.fiware"]
 	path = lib/mediscara.fiware
 	url = https://github.com/ppuska/mediscara.fiware
+	branch = model_ver2

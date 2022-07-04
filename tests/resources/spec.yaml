@@ -1,0 +1,256 @@
+pdf:
+  sheet:
+    size: "A4"
+    font: 'Times-Roman'
+    margin:
+      left: 16
+      right: 16
+      top: 16
+      bottom: 16
+
+  content:
+    - paragraph:
+        text: "Incubator - UDI (S/N: <serial_number>)"
+        alignment: 'center'
+        size: 10
+        space_before: 4
+        space_after: 20
+
+    - paragraph:
+        text: "Type: <type>"
+        alignment: 'left'
+        size: 10
+
+    - paragraph:
+        text: "Measurement Date/Time: <meas_date>"
+        alignment: 'left'
+        size: 10
+
+    - table:
+        space_before: 20
+        space_after: 0
+        border: true
+        grid: true
+        rows:
+          - row:
+            - cell:
+                text: "Weighing device yes"
+            - cell:
+                text: "Camera yes"
+          - row:
+            - cell:
+                text: "Cradle lift yes"
+            - cell:
+                text: "Canopy lift no"
+
+    # CAD Model
+    - image:
+        space_before: 72
+        resource: "resources/220608_133025_0000000002_CAM1_OK.jpg"
+        alignment: 'center'
+        width: 432
+        height: 288
+
+    # subassembly
+    - table:
+        space_before: 20
+        border: true
+        rows:
+          - row:
+            - image:
+                resource: "resources/220608_133008_0000000001_CAM1_HEIGHT_OK.jpg"
+                alignment: 'center'
+                width: 110
+                height: 110
+            - image:
+                resource: "resources/220608_133025_0000000002_CAM1_HEIGHT_OK.jpg"
+                alignment: 'center'
+                width: 110
+                height: 110
+            - image:
+                resource: "resources/220608_133648_0000000002_CAM1_HEIGHT_OK.jpg"
+                alignment: 'center'
+                width: 110
+                height: 110
+          - row:
+            - image:
+                resource: "resources/220608_133008_0000000001_CAM1_OK.jpg"
+                alignment: 'center'
+                width: 110
+                height: 110
+            - image:
+                resource: "resources/220608_133025_0000000002_CAM1_OK.jpg"
+                alignment: 'center'
+                width: 110
+                height: 110
+            - image:
+                resource: "resources/220608_133453_0000000001_CAM1_OK.jpg"
+                alignment: 'center'
+                width: 110
+                height: 110
+
+    - paragraph:
+        alignment: "center"
+        text: "Subassembly (Mainboard - Cabling - Screws)"
+        size: 12
+
+    - page_break:
+
+    # page 2
+
+    - paragraph:
+        text: "Incubator - UDI (S/N: 123455668)"
+        alignment: 'center'
+        size: 10
+        space_before: 4
+        space_after: 20
+
+    - paragraph:
+        text: "Type: Double Canopy Door Camera Included"
+        alignment: 'left'
+        size: 10
+
+    - paragraph:
+        text: "Measurement Date/Time: 2022.05.09 15:21"
+        alignment: 'left'
+        size: 10
+
+    # final assembly table
+    - table:
+        space_before: 20
+        border: true
+        rows:
+          - row:
+              - image:
+                  resource: "resources/220608_133648_0000000002_CAM1_HEIGHT_OK.jpg"
+                  alignment: 'center'
+                  width: 125
+                  height: 125
+              - image:
+                  resource: "resources/220608_133648_0000000002_CAM1_OK.jpg"
+                  alignment: 'center'
+                  width: 125
+                  height: 125
+
+    - paragraph:
+        text: "Final Assembly (Mainboard - Cabling)"
+        alignment: 'center'
+        size: 10
+
+    - table:
+        space_before: 20
+        border: true
+        rows:
+          - row:
+              - image:
+                  resource: "resources/220608_133648_0000000002_CAM1_HEIGHT_OK.jpg"
+                  alignment: 'center'
+                  width: 125
+                  height: 125
+              - image:
+                  resource: "resources/220608_133648_0000000002_CAM1_OK.jpg"
+                  alignment: 'center'
+                  width: 125
+                  height: 125
+
+    - paragraph:
+        text: "Final Assembly (Mainboard - Labels)"
+        alignment: 'center'
+        size: 10
+
+    - page_break:
+
+    # page 3
+
+    - paragraph:
+        text: "Incubator - UDI (S/N: 123455668)"
+        alignment: 'center'
+        size: 10
+        space_before: 4
+        space_after: 20
+
+    - paragraph:
+        text: "Type: Double Canopy Door Camera Included"
+        alignment: 'left'
+        size: 10
+
+    - paragraph:
+        text: "Measurement Date/Time: 2022.05.09 15:21"
+        alignment: 'left'
+        size: 10
+
+    # measurement table
+    - table:
+        space_before: 20
+        border: true
+        header: true
+        grid: true
+        rows:
+          - row:
+              - cell:
+                  text: "Measured entity"
+              - cell:
+                  text: "Value"
+
+          - row:
+              - cell:
+                  text: "Cable 1 connection"
+              - cell:
+                  text: "OK (Value: 14.23)"
+                  background_color: "#adf288"
+
+          - row:
+              - cell:
+                  text: "Cable 2 connection"
+              - cell:
+                  text: "Not OK (Value: 23.22)"
+                  background_color: "#f28f88"
+
+          - row:
+              - cell:
+                  text: "Cable 3 connection"
+              - cell:
+                  text: "Not OK (Value: 18.83)"
+                  background_color: "#f28f88"
+
+          - row:
+              - cell:
+                  text: "Screw 1 tightened"
+              - cell:
+                  text: "OK (Value: 2.92)"
+                  background_color: "#adf288"
+
+          - row:
+              - cell:
+                  text: "Screw 2 tightened"
+              - cell:
+                  text: "OK (Value: 13.87)"
+                  background_color: "#adf288"
+
+          - row:
+              - cell:
+                  text: "Cable 1 color"
+              - cell:
+                  text: "OK (Value: 9.48)"
+                  background_color: "#adf288"
+
+          - row:
+              - cell:
+                  text: "Cable 2 connection"
+              - cell:
+                  text: "OK (Value: 14.72)"
+                  background_color: "#adf288"
+
+          - row:
+              - cell:
+                  text: "Potentiometer 1 height"
+              - cell:
+                  text: "OK (Value: 15.53)"
+                  background_color: "#adf288"
+
+          - row:
+              - cell:
+                  text: "Potentiometer 2 height"
+              - cell:
+                  text: "OK (Value: 12.29)"
+                  background_color: "#adf288"
