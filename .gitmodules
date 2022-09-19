@@ -1,7 +1,3 @@
 [submodule "lib/pdf-generator"]
 	path = lib/pdf-generator
 	url = https://github.com/ppuska/pdf-generator
-[submodule "lib/mediscara.fiware"]
-	path = lib/mediscara.fiware
-	url = https://github.com/ppuska/mediscara.fiware
-	branch = model_ver2
