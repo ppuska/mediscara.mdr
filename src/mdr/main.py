@@ -20,6 +20,8 @@ PORT_DEFAULT_VALUE = 8888
 
 OUTPUT_DIR = ""
 
+OCB_ATTRIBUTE = "measure_assembly_info"
+
 # create Flask app instance
 app = Flask(__name__)
 
@@ -95,7 +97,7 @@ def measurement():
             payload = request.json  # type: dict
             payload = payload["data"]  # type: list
             payload = payload[0]  # type: dict
-            payload = payload["measure_assembly_info"]  # type: str
+            payload = payload[OCB_ATTRIBUTE]  # type: str
 
     except (IndexError, KeyError) as error:
         logging.warning("Got an error while parsing the request body: %s", error.args)
@@ -104,7 +106,10 @@ def measurement():
         updated_yaml = yaml.load_variables(parse_payload(payload))
 
         render(
-            f"{OUTPUT_DIR}/{datetime.now().strftime('%Y_%m_%d__%H_%M_%S')}.pdf",
+            os.path.join(
+                OUTPUT_DIR,
+                f"{datetime.now().strftime('%Y_%m_%d__%H_%M_%S')}.pdf",
+            ),
             PDF.from_yaml(updated_yaml),
         )
 
