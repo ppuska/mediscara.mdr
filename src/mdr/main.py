@@ -8,9 +8,9 @@ from flask import Flask, make_response, request
 
 from pdfgen.pdf.objects import PDF
 from pdfgen.renderer import render
+from pdfgen import yaml
 
 from . import __version__
-from . import yaml
 
 YAML_PATH_KEY = "YAML_PATH"
 PORT_KEY = "PORT"
