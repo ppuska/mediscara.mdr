@@ -3,27 +3,39 @@
 import logging
 import re
 
+from os import getcwd
+import sys
+
 from yaml import safe_load
+
 
 def init(yaml_path: str):
     """Loads the yaml file"""
-    with open(yaml_path, 'r', encoding='utf-8') as file:
-        init.yaml_raw = file.read()
+    try:
+        with open(yaml_path, "r", encoding="utf-8") as file:
+            init.yaml_raw = file.read()
+
+    except FileNotFoundError:
+        logging.fatal("Yam`l file not found at: %s.", yaml_path)
+        logging.fatal("Current working directory is: %s", getcwd())
+        sys.exit(1)
 
 
 def load_variables(variables: dict) -> dict:
     """Loads the variable dictionary back into the raw file"""
 
-    if not hasattr(init, 'yaml_raw'):
+    if not hasattr(init, "yaml_raw"):
         logging.warning(
-            "%s: yaml file not loaded, please use the %s method first", load_variables.__name__, init.__name__
-            )
+            "%s: yaml file not loaded, please use the %s method first",
+            load_variables.__name__,
+            init.__name__,
+        )
         return None
 
     string = init.yaml_raw
 
     for name, value in variables.items():
-        name_str = f'<{name}>'
+        name_str = f"<{name}>"
 
         previous_string = string
 
@@ -41,32 +53,38 @@ def load_variables(variables: dict) -> dict:
 
     return safe_load(string)  # convert the string back to dict
 
+
 def has_variables(string: str = ""):
     """Checks if the yaml file has variables with the <variable> syntax"""
 
     if not string:
-        if not hasattr(init, 'yaml_raw'):
+        if not hasattr(init, "yaml_raw"):
             logging.warning(
-                "%s: yaml file not loaded, please use the %s method first", load_variables.__name__, init.__name__
-                )
+                "%s: yaml file not loaded, please use the %s method first",
+                load_variables.__name__,
+                init.__name__,
+            )
             return False
 
         string = init.yaml_raw
 
-    re_pattern = r'<\w+>'
+    re_pattern = r"<\w+>"
 
     return re.findall(re_pattern, string)
+
 
 def check_yaml_syntax():
     """Checks if the syntax of the variables (if any) are correct in the yaml file"""
 
-    if not hasattr(init, 'yaml_raw'):
+    if not hasattr(init, "yaml_raw"):
         logging.warning(
-            "%s: yaml file not loaded, please use the %s method first", load_variables.__name__, init.__name__
-            )
+            "%s: yaml file not loaded, please use the %s method first",
+            load_variables.__name__,
+            init.__name__,
+        )
         return
 
-    re_pattern = r'<\w+^>'
+    re_pattern = r"<\w+^>"
 
     errors = re.findall(pattern=re_pattern, string=init.yaml_raw)
 
